@@ -6,21 +6,22 @@ tidal-chord is an add-on to the amazing live coding project tidal
 
 chord format
 -----------
-Chord format is inspired of the ableton live glasgow tool ( https://github.com/asb2m10/glasgow)
+Chord format is inspired from the ableton live glasgow tool ( https://github.com/asb2m10/glasgow)
 
 Note name:  A B C D E F G with # and b.
 
 Mode Name:  M(Major) m(Minor) Ionian Dorian Phrygian Lydian Myxolidian Aeolian Locrian 
 
-Scale Degre(optional): ° [1-7] degre in scale where the chord is applied  
+Scale Degre(optional): Â° [1-7] degre in scale where the chord is applied  
 
 Neighbour key tonality(optional) : +(one step in circle of fifth) or -(one step in circle of fourth)
 
 Relative Mode(optional) : > [Mode Name] convert scale to the relative mode  
 
 Chord Definition: | [Chord Name or Chord degres sep by - ] 
-                     Chord Name can be one of the following : Maj | Min | Maj7 | Min7 | Dom7 | Maj6 | Min6 | Five | Sus4 | Sus2 | MajorAdd2 | MinorAdd2 | Dom9 | Dom13 | Min9 | Maj9 | Maj13 | Min11
-                     
+
+Chord Name can be one of the following : Maj | Min | Maj7 | Min7 | Dom7 | Maj6 | Min6 | Five | Sus4 | Sus2 | MajorAdd2 | MinorAdd2 | Dom9 | Dom13 | Min9 | Maj9 | Maj13 | Min11
+
 Invertion : ! 
 
        note name
@@ -31,8 +32,8 @@ Invertion : !
        |     |  |     |   chord is a Maj chord
        |     |  |     |   |     makes invertions to chords (!! makes 2 invertions)
        |     |  |     |   |     | 
-       C 3 ° 2  M + > m | Maj   !!
-       C 3 ° 2  M + > m | 3 - 7 !! 
+       C 3 Â° 2  M + > m | Maj   !!
+       C 3 Â° 2  M + > m | 3 - 7 !! 
          | |      | |     |   |   
          | |      | |     |   |   
          | |      | |     |---|
@@ -47,7 +48,7 @@ Invertion : !
 
      chordToNotes "C3M|3-7" = [60,64,71]
      chordToNotes "C3M|Min9!!" = [63,70,72,74,79]
-     chordToNotes "C3°4M>m|Min!!" = [77,86,93]
+     chordToNotes "C3Â°4M>m|Min!!" = [77,86,93]
 
 ## Usage
 
@@ -60,9 +61,9 @@ import Sound.Tidal.MIDI.Context
 devices <- midiDevices
 m1 <- midiStream devices "VMidi 1" 1 synthController
 
-m1 $ midiChord "~ C2M*3 ~ C2°5M*2 C3°7M/2" # velocity (Sound.Tidal.Context.scale 0.1 0.6 (slow 8 $ sine1))
+m1 $ midiChord "~ C2M*3 ~ C2Â°5M*2 C3Â°7M/2" # velocity (Sound.Tidal.Context.scale 0.1 0.6 (slow 8 $ sine1))
 
-m1 $ midiChord "C3M- C3°7M-*2 C2°5M-|3-5-9/2 "
+m1 $ midiChord "C3M- C3Â°7M-*2 C2Â°5M-|3-5-9/2 "
 
 
 
